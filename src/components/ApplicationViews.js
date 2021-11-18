@@ -11,7 +11,8 @@ import { Route } from "react-router-dom"
 export const ApplicationViews = () => {
     return (
         <>
-            <Route path="/customers">
+            <Route exact path="/">
+            {/* Exact path specifies that it needs to match exactly so it wouldnt pick up / in paths below such as /customer */}
                 <CustomerList />
             </Route>
 
@@ -26,3 +27,7 @@ export const ApplicationViews = () => {
         // the routes are listening for the /customer event. When the URL matches the route path it will display CustomerList
     ) 
 }
+
+
+
+
