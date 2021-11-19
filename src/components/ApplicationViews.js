@@ -5,6 +5,7 @@
 import { CustomerList } from "./customers/customersList"
 import { EmployeeList } from "./employees/employeeList"
 import { TicketList } from "./serviceTickets/ticketList"
+import { TicketForm } from "./serviceTickets/ticketForm"
 import React from "react"
 import { Route } from "react-router-dom"
 
@@ -15,12 +16,21 @@ export const ApplicationViews = () => {
             {/* Exact path specifies that it needs to match exactly so it wouldnt pick up / in paths below such as /customer */}
                 <CustomerList />
             </Route>
+             <Route path="/customers">
+            {/* each of these Routers will render  the below components if the anchor tag in navbar is clicked */}
+                <CustomerList />
+            </Route>
 
             <Route path="/employees">
                 <EmployeeList />
             </Route>
+            
+            <Route path="/tickets/create">
+                <TicketForm />
+            </Route>
 
-            <Route path="/tickets">
+            <Route exact path="/tickets">
+            {/* this is an exact path so tickets/create isn't also rendered*/}
                 <TicketList />
             </Route>
         </>
