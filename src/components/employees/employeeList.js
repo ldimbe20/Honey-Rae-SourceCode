@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
 
 export const EmployeeList = () => {  //declaring the functional component 
     const [employees, setEmployee] = useState([])// employees is a variable , changeEmployee is a variable  whose function changes state
     const [specialties, setSpecial] = useState("") // specialties is a variable whose value is set by the setSpecial function. 
-
+    const history = useHistory()
     //useState is a house that houses the specialies and setSpecials so it is a place to store them. 
 
     useEffect(
@@ -24,7 +25,9 @@ export const EmployeeList = () => {  //declaring the functional component
 
     return (
         <>
-        {/* need to update below to match employees with specailties they provide */}
+        <div>
+         <button onClick={() => history.push("/employees/create")}>Pick Employee</button>
+        </div> 
             <div>
                 Specialties: { specialties } 
             </div>

@@ -8,7 +8,7 @@ export const TicketForm = () => {
         emergency:false,
     })
 
-    const history =  useHistory()
+    const history =  useHistory() //creating a variable that equals the return of useHistory
 
     const saveTicket = (evt) => {  //this function is using the state, useState, to create an object to store to API
         evt.preventDefault()
@@ -64,7 +64,7 @@ export const TicketForm = () => {
                 <div className="form-group">
                     <label htmlFor="name">Emergency:</label>
                     <input type="checkbox"
-                         onChange={ //onChange is like an event listener that listens for a change and records it- we are listening for the change in description here
+                         onChange={ //onChange is like an event listener that listens for a change and records it
                              (evt) =>{
                                  const copy ={...ticket}     //using object spread operator to copy the initual state
                                  copy.emergency = evt.target.checked  //making the new description = the value of someone typing into the description field
