@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export const EmployeeList = () => {  //declaring the functional component 
     const [employees, setEmployee] = useState([])// employees is a variable , changeEmployee is a variable  whose function changes state
@@ -12,7 +13,7 @@ export const EmployeeList = () => {  //declaring the functional component
             fetch("http://localhost:8088/employees") 
                 .then(res => res.json())
                 .then((employeesFromAPI) => {
-                    setEmployee(employeesFromAPI)
+                    setEmployee(employeesFromAPI)  //!Could I also use data in parenthesis?
                 })
         },
         [] //called the dependency array because if you put a variable into it, it will listen for the state changes in it if not it will only run once. It is dependent on what is put into it
@@ -34,7 +35,9 @@ export const EmployeeList = () => {  //declaring the functional component
             {
                 employees.map(
                     (employee) => {
-                        return <p key={`employee--${employee.id}`}>{employee.name}</p>  //the key={`employee--  is used for React as a unique identifier
+                        return <p key={`employee--${employee.id}`}>
+                         {/* //the key={`employee--  is used for React as a unique identifier */}
+                        <Link to={`/employees/${employee.id}`}>{employee.name}</Link></p>
                     }
                 )
             }

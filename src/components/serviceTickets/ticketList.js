@@ -12,7 +12,7 @@ export const TicketList = () => {
             fetch("http://localhost:8088/serviceTickets?_expand=employee&_expand=customer")
                 .then(res => res.json())
                 .then((data) => {
-                    setTicket(data)
+                    setTicket(data)  
                 })
         },
         []
@@ -29,15 +29,15 @@ export const TicketList = () => {
             {
                 tickets.map(
                     (ticket) => {
-
-
                         return <div key={`ticket--${ticket.id}`}>
                             <div className={ticket.emergency ? "emergency": "ticket"}>  
                             {/* above states if className is emergency is ticket.emergy is true and is ticket if ticket.emergency is false */}
                         
                            <p>{ticket.emergency ? "🚑" : ""}  
-                           <Link to={`/tickets/${ticket.id}`}>{ticket.description}</Link> </p>
-                           <p>{ticket.description} submitted by {ticket.customer.name} and worked on by {ticket.employee.name}</p>
+                           <Link to={`/tickets/${ticket.id}`}>{ticket.description}</Link>  
+                           {/* link is creating a hyperlink that appears on description */}
+                            Submitted by {ticket.customer.name} and worked on by {ticket.employee.name}
+                           <Link to={`/tickets/${ticket.id}`}>{ticket.description}</Link></p>
 
                             </div>
                             

@@ -7,6 +7,8 @@ import { EmployeeList } from "./employees/employeeList"
 import { TicketList } from "./serviceTickets/ticketList"
 import { TicketForm } from "./serviceTickets/ticketForm"
 import { EmployeeForm } from "./employees/employeeForm"
+import { Ticket } from "./serviceTickets/Tickets"
+import { Employee } from "./employees/employee"
 import React from "react"
 import { Route } from "react-router-dom"
 
@@ -38,6 +40,17 @@ export const ApplicationViews = () => {
             {/* this is an exact path so tickets/create isn't also rendered*/}
                 <TicketList />
             </Route>
+
+            <Route exact path="/tickets/:ticketId(\d+)">  
+            {/* {would like to understand what \d+ means it might help me remember what it does..does it store the useParam?} */}
+             <Ticket />
+            </Route>
+
+            <Route exact path="/employees/:employeeId(\d+)">  
+            {/* {would like to understand what \d+ means it might help me remember what it does..does it store the useParam?} */}
+             <Employee />
+            </Route>
+
         </>
         // the routes are listening for the /customer event. When the URL matches the route path it will display CustomerList
     ) 
