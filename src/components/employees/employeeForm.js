@@ -6,6 +6,7 @@ export const EmployeeForm = () => {
     const [employee, update] = useState({ 
         specialties:"",
         name:"",
+        // employeeId:1, do I need to add look at line 19
     })
 
     const history =  useHistory()

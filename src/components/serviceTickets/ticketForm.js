@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
+import './Tickets.css';
 
 export const TicketForm = () => {
     
@@ -61,14 +62,16 @@ export const TicketForm = () => {
                 </div>
             </fieldset>
             <fieldset>
-                <div className="form-group">
-                    <label htmlFor="name">Emergency:</label>
+                <div className="emergency">
+                    <label htmlFor="name">emergency:</label>
                     <input type="checkbox"
                          onChange={ //onChange is like an event listener that listens for a change and records it
                              (evt) =>{
                                  const copy ={...ticket}     //using object spread operator to copy the initual state
-                                 copy.emergency = evt.target.checked  //making the new description = the value of someone typing into the description field
-                                 update(copy)}      
+                                 copy.emergency = evt.target.checked  //making the new description = the value of someone checking box
+                                 update(copy)
+            //new code           
+                                 }      
                          }/>
                 </div>
             </fieldset>

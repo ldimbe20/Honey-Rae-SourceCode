@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 export const TicketList = () => {
@@ -23,7 +24,7 @@ export const TicketList = () => {
         <>
         <div>
         <button onClick={()=> history.push("/tickets/create")}> Create Ticket </button>  
-        {/* above is brining user to service ticket component by using the /tickets/create */}
+        {/* above is bringing user to service ticket component by using the /tickets/create */}
         </div>
             {
                 tickets.map(
@@ -31,12 +32,16 @@ export const TicketList = () => {
 
 
                         return <div key={`ticket--${ticket.id}`}>
-                            <p> {ticket.description} Submitted by {ticket.customer?.name} 
-                            {/* Optional Chaining the ? above asks does this have customer if it does then move to name  */}
-                             and worked on by {ticket.employee?.name||"Unknown" }</p>  
-                             {/* Two vertical pipes means is there ticket.employee.name if not then post "unknown"  */}
-                            
+                            <div className={ticket.emergency ? "emergency": "ticket"}>  
+                            {/* above states if className is emergency is ticket.emergy is true and is ticket if ticket.emergency is false */}
+                        
+                           <p>{ticket.emergency ? "🚑" : ""}  
+                           <Link to={`/tickets/${ticket.id}`}>{ticket.description}</Link> </p>
+                           <p>{ticket.description} submitted by {ticket.customer.name} and worked on by {ticket.employee.name}</p>
+
                             </div>
+                            
+                        </div>
                     }
                 )
             }
