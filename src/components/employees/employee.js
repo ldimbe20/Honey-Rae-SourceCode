@@ -8,7 +8,7 @@ export const Employee = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/employees`)
+            fetch(`http://localhost:8088/employees/${employeeId}`) //
                 .then(res => res.json())
                 .then(set)
         },
@@ -19,7 +19,7 @@ export const Employee = () => {
         <>
             <section className="employee">
                 <h3 className="employee__name">{employee.name}</h3>
-                <div className="employee__specailties">Specialties {employee.specialty}</div>
+                <div className="employee__specailties">Specialties: {employee.specialty}</div>
             </section>
         </>
     )
