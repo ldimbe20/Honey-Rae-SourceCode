@@ -4,15 +4,16 @@ import { useParams } from "react-router-dom"
 
 export const Employee = () => {
     const [employee, set] = useState({})  // State variable for current employee object
-    const { employeeId } = useParams()  // Variable storing the route parameter
+    const { employeeId } = useParams()  // Variable storing the route parameter// look where Employee is invoked for commented code
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/employees/${employeeId}`) //
+            fetch(`http://localhost:8088/employees/${employeeId}`) // 
                 .then(res => res.json())
                 .then(set)
         },
-        [ employeeId ]  // Above function runs when the value of employeeId change
+        [ employeeId ]  // Above function runs when the value of employeeId change , 
+        
     )
 
     return (

@@ -41,13 +41,14 @@ export const ApplicationViews = () => {
                 <TicketList />
             </Route>
 
-            <Route exact path="/tickets/:ticketId(\d+)">  
-            {/* {would like to understand what \d+ means it might help me remember what it does..does it store the useParam?} */}
+            <Route path="/tickets/:ticketId(\d+)">  
+            {/* {} */}
              <Ticket />
             </Route>
 
-            <Route exact path="/employees/:employeeId(\d+)">  
-            {/* {would like to understand what \d+ means it might help me remember what it does..does it store the useParam?} */}
+            <Route exact path="/employees/:employeeId(\d+)"> 
+            {/* {anytime the path above is run, Employee will be rendered. The : checks to see if the varible after 
+            //it is employeeId and (/d+) means it needs to be a number */}
              <Employee />
             </Route>
 
